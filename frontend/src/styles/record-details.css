@@ -1,0 +1,2064 @@
+/* FIXL record details — focused, full-width enterprise record view */
+.record-details-page {
+  display: grid;
+  gap: 22px;
+  width: 100%;
+  min-width: 0;
+  padding: 2px 0 24px;
+  color: var(--ink, #172b4d);
+}
+.rdv-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 0;
+}
+.rdv-toolbar .secondary-btn,
+.rdv-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 39px;
+  white-space: nowrap;
+}
+.rdv-back-button {
+  order: 0;
+}
+.rdv-breadcrumb {
+  color: var(--muted, #74839a);
+  font-size: 12px;
+  order: 1;
+}
+.rdv-breadcrumb span {
+  margin: 0 8px;
+  color: var(--border, #cbd5e1);
+}
+.rdv-page-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  min-width: 0;
+  padding: 0 0 22px;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+}
+.rdv-heading-copy {
+  min-width: 0;
+}
+.rdv-heading-copy .eyebrow {
+  display: block;
+  margin-bottom: 7px;
+  letter-spacing: 0.1em;
+  font-size: 10px;
+}
+.rdv-heading-copy h1 {
+  margin: 0;
+  font-size: clamp(25px, 2vw, 31px);
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+.rdv-heading-copy p {
+  margin: 7px 0 0;
+  color: var(--muted, #74839a);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.rdv-content {
+  display: grid;
+  gap: 28px;
+  min-width: 0;
+}
+/* The overview is a single identity row, not a card inside another card. */
+.rdv-overview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  min-width: 0;
+  padding: 0 0 22px;
+  border: 0;
+  border-bottom: 1px solid var(--border, #dfe6f0);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.rdv-overview-main {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1;
+  min-width: 0;
+}
+.rdv-overview-icon {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  color: #315edb;
+  background: #eaf0ff;
+  border-radius: 9px;
+}
+.rdv-overview-copy {
+  flex: 1;
+  min-width: 0;
+}
+.rdv-overview-label {
+  display: block;
+  margin: 0 0 5px;
+  color: var(--muted, #74839a);
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+.rdv-overview-copy h2 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 750;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.rdv-overview-copy p {
+  margin: 6px 0 0;
+  color: var(--muted, #74839a);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.rdv-overview-meta {
+  display: flex;
+  align-items: stretch;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0;
+  min-width: 0;
+}
+.rdv-meta-item {
+  display: grid;
+  align-content: center;
+  gap: 6px;
+  min-width: 145px;
+  padding: 2px 0 2px 20px;
+  margin-left: 20px;
+  border-left: 1px solid var(--border, #e4eaf3);
+}
+.rdv-meta-item > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--muted, #74839a);
+  font-size: 11px;
+}
+.rdv-meta-item strong {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+/* All sections follow one vertical reading order; no half-empty card columns. */
+.rdv-sections {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  min-width: 0;
+}
+.rdv-section {
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.rdv-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  padding: 0 0 12px;
+  border-bottom: 1px solid var(--border, #dfe6f0);
+}
+.rdv-section-icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  color: #315edb;
+  background: #eaf0ff;
+  border-radius: 8px;
+}
+.rdv-section-heading h3 {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+.rdv-section-body {
+  min-width: 0;
+}
+.rdv-field-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 30px;
+  min-width: 0;
+}
+.rdv-field {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 13px 0 14px;
+  border: 0;
+  border-bottom: 1px solid var(--border, #e9edf4);
+  border-radius: 0;
+  background: transparent;
+}
+.rdv-label {
+  color: var(--muted, #74839a);
+  font-size: 11px;
+  font-weight: 550;
+  line-height: 1.45;
+}
+.rdv-value {
+  min-width: 0;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.rdv-value-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.rdv-muted {
+  color: var(--muted, #8995a8);
+  font-weight: 400;
+}
+.rdv-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--primary, #315edb);
+  font-weight: 650;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+.rdv-link:hover {
+  text-decoration: underline;
+}
+.rdv-array {
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+.rdv-array-item {
+  min-width: 0;
+  padding: 0 0 0 12px;
+  border-left: 2px solid #dce5f7;
+  background: transparent;
+  overflow: hidden;
+}
+.rdv-nested-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 24px;
+  min-width: 0;
+}
+.rdv-nested-field {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  min-width: 0;
+  padding: 11px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border, #e9edf4);
+  border-radius: 0;
+  background: transparent;
+}
+.rdv-comparison {
+  min-width: 0;
+  overflow-x: auto;
+}
+.rdv-comparison-head,
+.rdv-comparison-row {
+  display: grid;
+  grid-template-columns: minmax(130px, 0.7fr) repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+  min-width: 480px;
+}
+.rdv-comparison-head {
+  padding: 0 10px 10px;
+  color: var(--muted, #74839a);
+  font-size: 10px;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.rdv-comparison-row {
+  padding: 13px 10px;
+  border-top: 1px solid var(--border, #e9edf4);
+  font-size: 12px;
+  line-height: 1.6;
+}
+.rdv-comparison-row > strong,
+.rdv-comparison-row > div {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.rdv-comparison-row.is-changed {
+  background: #fff9ed;
+}
+.rdv-comparison-row.is-changed > strong {
+  color: #8b5b13;
+}
+.rdv-change-empty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted, #74839a);
+  font-size: 12px;
+}
+.rdv-timeline {
+  display: grid;
+  gap: 0;
+}
+.rdv-timeline-event {
+  display: grid;
+  grid-template-columns: 14px minmax(0, 1fr);
+  gap: 12px;
+  padding: 0 0 17px;
+  position: relative;
+}
+.rdv-timeline-event:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 12px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border, #e4eaf3);
+}
+.rdv-timeline-dot {
+  width: 11px;
+  height: 11px;
+  margin-top: 3px;
+  border-radius: 50%;
+  background: #5274dd;
+  border: 2px solid #e9efff;
+  z-index: 1;
+}
+.rdv-timeline-content {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.rdv-timeline-event strong {
+  font-size: 12px;
+}
+.rdv-timeline-event time {
+  color: var(--muted, #74839a);
+  font-size: 11px;
+}
+.rdv-timeline-event p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.rdv-state-panel {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 48px 24px;
+  text-align: center;
+  border: 1px solid var(--border, #e4eaf3);
+  border-radius: 10px;
+  background: var(--surface, #fff);
+}
+.rdv-state-panel h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+}
+.rdv-state-panel p {
+  max-width: 500px;
+  margin: 0;
+  color: var(--muted, #74839a);
+  font-size: 13px;
+  line-height: 1.7;
+}
+.rdv-error-panel {
+  color: #a53f3f;
+}
+.rdv-spinning {
+  animation: rdv-spin 1s linear infinite;
+}
+@keyframes rdv-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.record-details-page a:focus-visible,
+.record-details-page button:focus-visible {
+  outline: 2px solid #315edb;
+  outline-offset: 3px;
+}
+@media (max-width: 1250px) {
+  .rdv-field-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 900px) {
+  .rdv-overview {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .rdv-overview-meta {
+    justify-content: flex-start;
+    width: 100%;
+  }
+  .rdv-meta-item {
+    min-width: 135px;
+    margin: 0 18px 0 0;
+    padding: 0 18px 0 0;
+    border-left: 0;
+    border-right: 1px solid var(--border, #e4eaf3);
+  }
+  .rdv-field-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .rdv-nested-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .record-details-page {
+    gap: 17px;
+  }
+  .rdv-page-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .rdv-heading-copy h1 {
+    font-size: 24px;
+  }
+  .rdv-toolbar {
+    align-items: flex-start;
+  }
+  .rdv-breadcrumb {
+    width: 100%;
+    order: 2;
+  }
+  .rdv-field-grid,
+  .rdv-nested-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .rdv-overview-main {
+    align-items: flex-start;
+  }
+  .rdv-overview-meta {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .rdv-meta-item {
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+  .rdv-sections {
+    gap: 23px;
+  }
+  .rdv-comparison-head,
+  .rdv-comparison-row {
+    gap: 10px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rdv-spinning {
+    animation: none;
+  }
+}
+
+.structured-detail-link {
+  color: var(--primary, #315edb);
+  font-weight: 650;
+  text-decoration: none;
+}
+.structured-detail-link:hover {
+  text-decoration: underline;
+}
+.structured-tracking-timeline {
+  display: grid;
+  gap: 0;
+}
+.structured-tracking-event {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr);
+  gap: 12px;
+  padding: 0 0 17px;
+  position: relative;
+}
+.structured-tracking-event:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 11px;
+  bottom: 0;
+  width: 1px;
+  background: var(--border, #e4eaf3);
+}
+.structured-tracking-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #5274dd;
+  margin-top: 4px;
+  z-index: 1;
+}
+.structured-tracking-event > div {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.structured-tracking-event b {
+  font-size: 13px;
+}
+.structured-tracking-event small {
+  color: var(--muted, #74839a);
+  font-size: 11px;
+}
+.structured-tracking-event p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.structured-detail-subsection {
+  margin-top: 12px;
+  padding: 14px;
+  background: var(--surface-muted, #fafbfe);
+  border-radius: 8px;
+}
+
+/* =========================================================
+   FIXL — SIMPLE RECORD DETAILS
+   Final overrides for the shared details page.
+   ========================================================= */
+
+.record-details-page.rdv-simple {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 0 0 20px;
+  color: var(--ink, #172b4d);
+}
+
+/* Actions */
+.record-details-page.rdv-simple .rdv-simple-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-back,
+.record-details-page.rdv-simple .rdv-simple-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 36px;
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+/* Page title */
+.record-details-page.rdv-simple .rdv-simple-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 0 0 22px;
+  padding: 0 0 18px;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+}
+
+.record-details-page.rdv-simple .rdv-simple-eyebrow {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--muted, #74839a);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading h1 {
+  margin: 0;
+  font-size: clamp(23px, 2vw, 29px);
+  line-height: 1.25;
+  font-weight: 750;
+  letter-spacing: -0.025em;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading p {
+  margin: 6px 0 0;
+  color: var(--muted, #74839a);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Compact record summary — no oversized card */
+.record-details-page.rdv-simple .rdv-simple-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  min-width: 0;
+  margin: 0 0 24px;
+  padding: 15px 0 18px;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-title {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-title > svg {
+  flex: 0 0 auto;
+  margin-top: 3px;
+  color: var(--primary, #315edb);
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-title span,
+.record-details-page.rdv-simple .rdv-simple-summary-meta span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+  color: var(--muted, #74839a);
+  font-size: 11px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-title h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 750;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-title p {
+  margin: 4px 0 0;
+  color: var(--muted, #74839a);
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 24px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-meta > div {
+  min-width: 110px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-meta strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* One section after another: never create half-empty columns */
+.record-details-page.rdv-simple .rdv-simple-sections {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+  min-width: 0;
+}
+
+.record-details-page.rdv-simple .rdv-simple-section {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Plain section heading */
+.record-details-page.rdv-simple .rdv-simple-section .rdv-section-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 5px;
+  padding: 0 0 10px;
+  border: 0;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+}
+
+.record-details-page.rdv-simple .rdv-simple-section .rdv-section-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  flex: 0 0 auto;
+  padding: 0;
+  color: var(--muted, #74839a);
+  background: transparent;
+  border-radius: 0;
+}
+
+.record-details-page.rdv-simple .rdv-simple-section .rdv-section-heading h3 {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.record-details-page.rdv-simple .rdv-simple-section .rdv-section-body {
+  width: 100%;
+  min-width: 0;
+}
+
+/* Information fields use the available width efficiently */
+
+.record-details-page.rdv-simple .rdv-field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 0 24px;
+  width: 100%;
+  min-width: 0;
+}
+
+.record-details-page.rdv-simple .rdv-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  min-width: 0;
+  margin: 0;
+  padding: 11px 0 12px;
+  border: 0;
+  border-bottom: 1px solid var(--border, #edf0f5);
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.record-details-page.rdv-simple .rdv-field:hover {
+  background: transparent;
+}
+
+.record-details-page.rdv-simple .rdv-label {
+  color: var(--muted, #74839a);
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.record-details-page.rdv-simple .rdv-value {
+  min-width: 0;
+  max-width: 100%;
+  color: var(--ink, #172b4d);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.record-details-page.rdv-simple .rdv-value-text {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.record-details-page.rdv-simple .rdv-muted {
+  color: var(--muted, #8995a8);
+  font-weight: 400;
+}
+
+/* Nested values stay simple and compact */
+.record-details-page.rdv-simple .rdv-nested-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 20px;
+  min-width: 0;
+}
+
+.record-details-page.rdv-simple .rdv-nested-field {
+  min-width: 0;
+  padding: 9px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border, #edf0f5);
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Arrays should not turn into nested cards */
+.record-details-page.rdv-simple .rdv-array {
+  display: grid;
+  gap: 8px;
+}
+
+.record-details-page.rdv-simple .rdv-array-item {
+  min-width: 0;
+  padding: 0 0 0 10px;
+  border-left: 2px solid var(--border, #dfe6f0);
+  background: transparent;
+}
+
+/* Comparison remains readable and scrollable on narrow screens */
+.record-details-page.rdv-simple .rdv-comparison {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.record-details-page.rdv-simple .rdv-comparison-head,
+.record-details-page.rdv-simple .rdv-comparison-row {
+  grid-template-columns: minmax(110px, 0.7fr) repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+/* Tracking history */
+.record-details-page.rdv-simple .rdv-simple-timeline {
+  display: grid;
+  gap: 0;
+}
+
+.record-details-page.rdv-simple .rdv-simple-timeline-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 10px minmax(0, 1fr);
+  gap: 12px;
+  padding: 3px 0 16px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-timeline-dot {
+  width: 8px;
+  height: 8px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: var(--primary, #315edb);
+}
+
+.record-details-page.rdv-simple .rdv-simple-timeline-item > div {
+  display: grid;
+  justify-items: start;
+  gap: 4px;
+  min-width: 0;
+}
+
+.record-details-page.rdv-simple .rdv-simple-timeline-item strong {
+  font-size: 12px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-timeline-item time {
+  color: var(--muted, #74839a);
+  font-size: 11px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-timeline-item p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+/* Loading, empty and error states */
+.record-details-page.rdv-simple .rdv-simple-state {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 22px 0;
+  color: var(--muted, #74839a);
+  font-size: 13px;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+}
+
+.record-details-page.rdv-simple .rdv-simple-state strong {
+  color: var(--ink, #172b4d);
+}
+
+.record-details-page.rdv-simple .rdv-simple-state p {
+  margin: 4px 0 0;
+}
+
+.record-details-page.rdv-simple .rdv-simple-error {
+  color: #a53f3f;
+}
+
+.record-details-page.rdv-simple button:focus-visible,
+.record-details-page.rdv-simple a:focus-visible {
+  outline: 2px solid var(--primary, #315edb);
+  outline-offset: 3px;
+}
+
+@media (max-width: 900px) {
+  .record-details-page.rdv-simple .rdv-simple-summary {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-summary-meta {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+
+  .record-details-page.rdv-simple .rdv-field-grid,
+  .record-details-page.rdv-simple .rdv-nested-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .record-details-page.rdv-simple .rdv-simple-toolbar {
+    margin-bottom: 18px;
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-heading {
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-heading h1 {
+    font-size: 23px;
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-summary {
+    margin-bottom: 18px;
+    padding-top: 5px;
+  }
+
+  .record-details-page.rdv-simple .rdv-field-grid,
+  .record-details-page.rdv-simple .rdv-nested-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-sections {
+    gap: 20px;
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-summary-meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .record-details-page.rdv-simple .rdv-spinning {
+    animation: none;
+  }
+}
+
+/* Compact nested objects and avoid unnecessary row height */
+.record-details-page.rdv-simple .rdv-field-grid > .rdv-field {
+  align-self: start;
+  min-height: 0;
+}
+
+.record-details-page.rdv-simple
+  .rdv-field-grid
+  > .rdv-field:has(.rdv-nested-grid) {
+  grid-column: 1 / -1;
+}
+
+.record-details-page.rdv-simple .rdv-nested-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0 20px;
+}
+
+.record-details-page.rdv-simple .rdv-nested-field {
+  padding: 7px 0;
+}
+
+@media (max-width: 900px) {
+  .record-details-page.rdv-simple .rdv-field-grid,
+  .record-details-page.rdv-simple .rdv-nested-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .record-details-page.rdv-simple .rdv-field-grid,
+  .record-details-page.rdv-simple .rdv-nested-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* =====================================================
+   FIXL — TABULAR RECORD DETAILS
+   Field | Value layout for all individual record pages
+   ===================================================== */
+
+.record-details-page .rdv-table-wrap {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.record-details-page .rdv-details-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+  background: transparent;
+}
+
+.record-details-page .rdv-details-table thead th {
+  padding: 10px 16px;
+  color: var(--muted, #74839a);
+  background: #f8fafd;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+.record-details-page .rdv-details-table th:first-child {
+  width: 30%;
+}
+
+.record-details-page .rdv-details-table tbody th,
+.record-details-page .rdv-details-table tbody td {
+  padding: 11px 16px;
+  border-bottom: 1px solid var(--border, #e9edf4);
+  text-align: left;
+  vertical-align: top;
+  font-size: 12px;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.record-details-page .rdv-details-table tbody th {
+  color: var(--muted, #74839a);
+  font-weight: 500;
+}
+
+.record-details-page .rdv-details-table tbody td {
+  color: var(--ink, #172b4d);
+  font-weight: 600;
+}
+
+.record-details-page .rdv-details-table tbody tr:last-child th,
+.record-details-page .rdv-details-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.record-details-page .rdv-details-table tbody tr:hover {
+  background: #fafbfd;
+}
+
+/* Remove the old grid spacing inside sections */
+.record-details-page .rdv-section-body .rdv-field-grid {
+  display: block;
+}
+
+.record-details-page .rdv-section-body .rdv-field {
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+/* Nested objects use a smaller, unheaded table */
+.record-details-page .rdv-nested-table-wrap {
+  width: 100%;
+  min-width: 0;
+}
+
+.record-details-page .rdv-nested-table th:first-child {
+  width: 35%;
+}
+
+.record-details-page .rdv-nested-table tbody th,
+.record-details-page .rdv-nested-table tbody td {
+  padding: 7px 10px;
+  font-size: 11px;
+}
+
+.record-details-page .rdv-nested-table tbody th {
+  background: #fafbfd;
+}
+
+.record-details-page .rdv-array {
+  display: grid;
+  gap: 8px;
+}
+
+.record-details-page .rdv-array-item {
+  padding: 0;
+  border: 1px solid var(--border, #e4eaf3);
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.record-details-page .rdv-table-empty {
+  margin: 0;
+  padding: 12px 0;
+  color: var(--muted, #74839a);
+  font-size: 12px;
+}
+
+@media (max-width: 600px) {
+  .record-details-page .rdv-details-table th:first-child {
+    width: 38%;
+  }
+
+  .record-details-page .rdv-details-table thead th,
+  .record-details-page .rdv-details-table tbody th,
+  .record-details-page .rdv-details-table tbody td {
+    padding: 10px 9px;
+  }
+
+  .record-details-page .rdv-nested-table th:first-child {
+    width: 40%;
+  }
+}
+
+/* =====================================================
+   FIXL — COMPACT DETAIL PAGE
+   ===================================================== */
+
+.record-details-page.rdv-simple {
+  padding-top: 0;
+  padding-bottom: 8px;
+}
+
+/* Reduce space above and below the heading */
+.record-details-page.rdv-simple .rdv-simple-toolbar {
+  margin-bottom: 12px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading {
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading h1 {
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading p {
+  margin-top: 4px;
+  font-size: 12px;
+}
+
+/* Compact summary */
+.record-details-page.rdv-simple .rdv-simple-summary {
+  gap: 16px;
+  margin-bottom: 14px;
+  padding: 4px 0 12px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-title h2 {
+  font-size: 15px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-summary-title p {
+  margin-top: 2px;
+  font-size: 12px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-sections {
+  gap: 14px;
+}
+
+/* Compact section titles */
+.record-details-page.rdv-simple .rdv-simple-section .rdv-section-heading {
+  margin-bottom: 0;
+  padding-bottom: 7px;
+}
+
+.record-details-page.rdv-simple .rdv-simple-section .rdv-section-heading h3 {
+  font-size: 12px;
+}
+
+/* Remove repeated table headers and reduce row height */
+.record-details-page .rdv-details-table tbody th,
+.record-details-page .rdv-details-table tbody td {
+  padding: 7px 12px;
+  line-height: 1.4;
+  font-size: 12px;
+}
+
+.record-details-page .rdv-details-table tbody th {
+  width: 30%;
+  font-weight: 500;
+}
+
+.record-details-page .rdv-details-table tbody td {
+  font-weight: 600;
+}
+
+/* No hover effect on non-interactive record rows */
+.record-details-page .rdv-details-table tbody tr:hover,
+.record-details-page .rdv-details-table tbody tr:hover th,
+.record-details-page .rdv-details-table tbody tr:hover td {
+  background: transparent !important;
+  color: inherit;
+}
+
+/* Keep nested tables compact too */
+.record-details-page .rdv-nested-table tbody th,
+.record-details-page .rdv-nested-table tbody td {
+  padding: 6px 10px;
+}
+
+/* Avoid oversized empty states */
+.record-details-page.rdv-simple .rdv-simple-state {
+  padding: 14px 0;
+}
+
+@media (max-width: 600px) {
+  .record-details-page.rdv-simple .rdv-simple-heading h1 {
+    font-size: 22px;
+  }
+
+  .record-details-page .rdv-details-table tbody th,
+  .record-details-page .rdv-details-table tbody td {
+    padding: 8px;
+  }
+}
+
+/* Refined detail page heading and arrow navigation */
+
+.record-details-page.rdv-simple .rdv-simple-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 34px;
+  margin-bottom: 12px;
+}
+
+.record-details-page.rdv-simple .rdv-back-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--muted, #74839a);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background-color 140ms ease,
+    color 140ms ease;
+}
+
+.record-details-page.rdv-simple .rdv-back-arrow:hover {
+  color: var(--ink, #172b4d);
+  background: #eaf0f8;
+}
+
+.record-details-page.rdv-simple .rdv-simple-refresh {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: var(--muted, #74839a);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.record-details-page.rdv-simple .rdv-simple-refresh:hover {
+  color: var(--ink, #172b4d);
+  background: #eaf0f8;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading {
+  display: block;
+  margin: 0 0 14px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading h1 {
+  margin: 3px 0 0;
+  font-size: 27px;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading p {
+  margin: 5px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.record-details-page.rdv-simple .rdv-simple-eyebrow {
+  margin: 0;
+  font-size: 10px;
+  letter-spacing: 0.075em;
+}
+
+.record-details-page.rdv-simple .rdv-back-arrow:focus-visible,
+.record-details-page.rdv-simple .rdv-simple-refresh:focus-visible {
+  outline: 2px solid var(--primary, #315edb);
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .record-details-page.rdv-simple .rdv-simple-heading h1 {
+    font-size: 23px;
+  }
+}
+
+/* Single-row detail heading with arrow on the left */
+
+.record-details-page.rdv-simple .rdv-detail-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 16px;
+  padding: 0 0 14px;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+}
+
+.record-details-page.rdv-simple .rdv-detail-heading-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+  flex: 1;
+}
+
+.record-details-page.rdv-simple .rdv-back-arrow {
+  flex: 0 0 34px;
+  margin-top: 4px;
+}
+
+.record-details-page.rdv-simple .rdv-detail-heading-row .rdv-simple-heading {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.record-details-page.rdv-simple .rdv-detail-heading-row .rdv-simple-heading h1 {
+  margin-top: 3px;
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.record-details-page.rdv-simple .rdv-detail-heading-row .rdv-simple-heading p {
+  margin-top: 5px;
+}
+
+.record-details-page.rdv-simple .rdv-detail-top > .rdv-simple-refresh {
+  flex: 0 0 34px;
+  margin-top: 4px;
+}
+
+@media (max-width: 600px) {
+  .record-details-page.rdv-simple .rdv-detail-heading-row {
+    gap: 8px;
+  }
+
+  .record-details-page.rdv-simple
+    .rdv-detail-heading-row
+    .rdv-simple-heading
+    h1 {
+    font-size: 21px;
+  }
+}
+
+/* Hide the global application footer only on record details pages */
+body:has(.record-details-page.rdv-simple) .app-layout-footer {
+  display: none;
+}
+
+/* FIXL — Clean, transparent refresh button */
+.record-details-page.rdv-simple .rdv-detail-top > button.rdv-simple-refresh {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  flex: 0 0 auto;
+  width: auto;
+  min-width: 0;
+  height: 34px;
+  min-height: 34px;
+  margin: 4px 0 0;
+  padding: 0 8px;
+
+  color: #64748b !important;
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  border-radius: 6px !important;
+  box-shadow: none !important;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  white-space: nowrap;
+
+  cursor: pointer;
+  transition:
+    color 140ms ease,
+    background-color 140ms ease;
+}
+
+/* Hover */
+.record-details-page.rdv-simple
+  .rdv-detail-top
+  > button.rdv-simple-refresh:hover:not(:disabled) {
+  color: #2459c5 !important;
+  background: #eaf0ff !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Click */
+.record-details-page.rdv-simple
+  .rdv-detail-top
+  > button.rdv-simple-refresh:active:not(:disabled) {
+  background: #dfe9ff !important;
+  box-shadow: none !important;
+}
+
+/* Keyboard focus */
+.record-details-page.rdv-simple
+  .rdv-detail-top
+  > button.rdv-simple-refresh:focus-visible {
+  outline: 2px solid #9bb7ff !important;
+  outline-offset: 2px;
+}
+
+/* Disabled */
+.record-details-page.rdv-simple
+  .rdv-detail-top
+  > button.rdv-simple-refresh:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Refresh icon */
+.record-details-page.rdv-simple
+  .rdv-detail-top
+  > button.rdv-simple-refresh
+  svg {
+  display: block;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  stroke-width: 1.8;
+}
+
+/* Loading animation */
+.record-details-page.rdv-simple
+  .rdv-detail-top
+  > button.rdv-simple-refresh
+  .rdv-spinning {
+  animation: rdv-spin 1s linear infinite;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .record-details-page.rdv-simple .rdv-detail-top > button.rdv-simple-refresh,
+  .record-details-page.rdv-simple
+    .rdv-detail-top
+    > button.rdv-simple-refresh
+    .rdv-spinning {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Detail-page actions: keep Edit visually secondary to the record heading. */
+.rdv-detail-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.rdv-edit-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+}
+@media (max-width: 640px) {
+  .rdv-detail-top {
+    align-items: flex-start;
+  }
+  .rdv-detail-actions {
+    flex-wrap: wrap;
+  }
+}
+
+/* Refresh button — match the existing Edit button */
+.record-details-page.rdv-simple
+.rdv-detail-actions
+.rdv-refresh-button {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  /* Match Edit's dimensions */
+  height: 46px;
+  min-height: 46px;
+  padding: 0 14px;
+
+  /* Match Edit's appearance */
+  color: #475569 !important;
+  background: #ffffff !important;
+  border: 1px solid #dbe3ef !important;
+  border-radius: 12px;
+  box-shadow: none !important;
+
+  font: inherit;
+  font-size: 14px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.record-details-page.rdv-simple .rdv-detail-actions .rdv-refresh-button:hover {
+  color: #1e293b !important;
+  background: #f8fafc !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: none !important;
+}
+
+.record-details-page.rdv-simple
+  .rdv-detail-actions
+  .rdv-refresh-button:focus-visible {
+  outline: 2px solid #94a3b8;
+  outline-offset: 3px;
+}
+
+.record-details-page.rdv-simple .rdv-detail-actions .rdv-refresh-button svg {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+}
+
+
+/* Compact, consistent Edit and Refresh buttons */
+.record-details-page.rdv-simple
+.rdv-detail-actions > button.secondary-btn {
+  box-sizing: border-box !important;
+
+  height: 40px !important;
+  min-height: 40px !important;
+  padding: 0 14px !important;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 7px !important;
+
+  border-radius: 10px !important;
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+}
+
+/* Consistent icon sizing */
+.record-details-page.rdv-simple
+.rdv-detail-actions > button.secondary-btn svg {
+  width: 15px !important;
+  height: 15px !important;
+  flex: 0 0 15px !important;
+}
+
+
+/* Compact back arrow positioned above the heading */
+.record-details-page.rdv-simple .rdv-detail-heading-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.record-details-page.rdv-simple .rdv-back-arrow {
+  position: static;
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  padding: 0;
+  margin-left: -2px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #64748b;
+}
+
+.record-details-page.rdv-simple .rdv-back-arrow svg {
+  width: 17px;
+  height: 17px;
+}
+/* FIXL — Remove excess space above record details */
+.record-details-page.rdv-simple .rdv-detail-top {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* FIXL — Remove parent content padding on record detail pages */
+main.content:has(> .record-details-page.rdv-simple) {
+  padding-top: 0 !important;
+}
+
+/* Compact back button: arrow followed by Back */
+.record-details-page.rdv-simple .rdv-back-button {
+  position: static !important;
+  display: inline-flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px;
+
+  width: auto !important;
+  height: 30px !important;
+  min-width: 0 !important;
+  min-height: 30px !important;
+  padding: 0 8px !important;
+  margin: 0 0 -8px -8px !important;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+
+  color: #64748b !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  line-height: 1 !important;
+}
+
+.record-details-page.rdv-simple .rdv-back-button svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.record-details-page.rdv-simple .rdv-back-button:hover {
+  background: #e9eef7 !important;
+  color: #1e3a5f !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* FIXL — Consistent record details layout */
+.record-details-page.rdv-simple .rdv-detail-top {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  column-gap: 16px;
+  row-gap: 12px;
+  margin: 0 0 20px;
+  padding: 0 0 18px;
+}
+
+/* Back button stays at the top left */
+.record-details-page.rdv-simple .rdv-detail-heading-row {
+  grid-column: 1;
+  grid-row: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  min-width: 0;
+  margin: 0;
+}
+
+/* Center heading and subtitle within the main content */
+.record-details-page.rdv-simple .rdv-simple-heading {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading h1 {
+  margin: 0;
+  line-height: 1.25;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading p {
+  margin: 8px 0 0;
+  line-height: 1.5;
+}
+
+/* Refresh stays top right */
+.record-details-page.rdv-simple .rdv-detail-actions {
+  grid-column: 2;
+  grid-row: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+/* Consistent separation between record sections */
+.record-details-page.rdv-simple .rdv-simple-summary {
+  margin-top: 0;
+  padding: 18px 0;
+}
+
+.record-details-page.rdv-simple .rdv-simple-sections {
+  margin-top: 0;
+}
+
+/* Responsive layout */
+@media (max-width: 640px) {
+  .record-details-page.rdv-simple .rdv-detail-top {
+    grid-template-columns: 1fr;
+    row-gap: 12px;
+  }
+
+  .record-details-page.rdv-simple .rdv-detail-heading-row {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .record-details-page.rdv-simple .rdv-detail-actions {
+    grid-column: 1;
+    grid-row: 2;
+    justify-content: flex-start;
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-heading {
+    text-align: left;
+  }
+}
+/* /* FIXL — Record details header: explicit, stable layout */
+
+.record-details-page.rdv-simple {
+  width: 100%;
+  min-width: 0;
+  padding: 0 0 8px !important;
+}
+
+.record-details-page.rdv-simple .rdv-detail-top {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "back actions"
+    "heading heading";
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 16px;
+
+  width: 100%;
+  min-width: 0;
+  margin: 0 0 12px !important;
+  padding: 0 0 14px !important;
+
+  border: 0;
+  border-bottom: 1px solid var(--border, #e4eaf3);
+}
+
+/* Back button: top left */
+.record-details-page.rdv-simple .rdv-detail-top > .rdv-back-button {
+  grid-area: back;
+  justify-self: start;
+  align-self: center;
+
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex-direction: row !important;
+  gap: 6px;
+
+  width: auto !important;
+  height: 34px !important;
+  min-width: 0 !important;
+  min-height: 34px !important;
+  margin: 0 !important;
+  padding: 0 8px !important;
+
+  color: #64748b !important;
+  background: transparent !important;
+  border: 0 !important;
+  border-radius: 8px;
+  box-shadow: none !important;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.record-details-page.rdv-simple .rdv-back-button:hover {
+  color: #1e3a5f !important;
+  background: #e9eef7 !important;
+}
+
+.record-details-page.rdv-simple .rdv-back-button svg {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+
+/* Title and subtitle: centered on their own full-width row */
+.record-details-page.rdv-simple .rdv-detail-top > .rdv-simple-heading {
+  grid-area: heading;
+  justify-self: stretch;
+
+  display: block;
+  width: 100%;
+  min-width: 0;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: center;
+  border: 0 !important;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading h1 {
+  margin: 0 !important;
+  font-size: clamp(23px, 2vw, 29px);
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  overflow-wrap: anywhere;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading p {
+  margin: 6px 0 0 !important;
+  color: var(--muted, #74839a);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Edit and Refresh: top right */
+.record-details-page.rdv-simple .rdv-detail-top > .rdv-detail-actions {
+  grid-area: actions;
+  justify-self: end;
+  align-self: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  min-width: 0;
+  margin: 0 !important;
+}
+
+/* Keep action buttons consistent */
+.record-details-page.rdv-simple .rdv-detail-actions > button.secondary-btn {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  min-height: 40px;
+  padding: 0 14px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.record-details-page.rdv-simple .rdv-detail-actions > button svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+}
+
+/* Compact record summary */
+.record-details-page.rdv-simple .rdv-simple-summary {
+  margin: 0 0 12px !important;
+  padding: 12px 0 !important;
+}
+
+/* Consistent section spacing */
+.record-details-page.rdv-simple .rdv-simple-sections {
+  margin-top: 0 !important;
+  gap: 14px !important;
+}
+
+/* Narrow screens */
+@media (max-width: 640px) {
+  .record-details-page.rdv-simple .rdv-detail-top {
+    column-gap: 8px;
+    row-gap: 12px;
+  }
+
+  .record-details-page.rdv-simple .rdv-detail-top > .rdv-simple-heading {
+    text-align: left;
+  }
+
+  .record-details-page.rdv-simple .rdv-simple-heading h1 {
+    font-size: 23px;
+  }
+
+  .record-details-page.rdv-simple .rdv-detail-actions {
+    gap: 6px;
+  }
+
+  .record-details-page.rdv-simple .rdv-detail-actions > button.secondary-btn {
+    min-height: 36px;
+    padding: 0 10px;
+  }
+}
+
+/* FIXL — Single-line record details header */
+.record-details-page.rdv-simple .rdv-detail-top {
+  display: grid !important;
+  grid-template-columns: auto minmax(0, 1fr) auto !important;
+  grid-template-areas: "back heading actions" !important;
+  align-items: center !important;
+  column-gap: 20px !important;
+  row-gap: 0 !important;
+
+  width: 100% !important;
+  margin: 0 0 16px !important;
+  padding: 12px 0 16px !important;
+
+  border-bottom: 1px solid var(--border, #e4eaf3) !important;
+}
+
+/* Back button: left */
+.record-details-page.rdv-simple .rdv-detail-top > .rdv-back-button {
+  grid-area: back !important;
+  justify-self: start !important;
+  align-self: center !important;
+  margin: 0 !important;
+  white-space: nowrap;
+}
+
+/* Heading and subtitle: center column */
+.record-details-page.rdv-simple .rdv-detail-top > .rdv-simple-heading {
+  grid-area: heading !important;
+  justify-self: center !important;
+  align-self: center !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+
+  text-align: center !important;
+  border: 0 !important;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading h1 {
+  margin: 0 !important;
+  font-size: clamp(20px, 1.8vw, 27px) !important;
+  line-height: 1.25 !important;
+}
+
+.record-details-page.rdv-simple .rdv-simple-heading p {
+  margin: 5px 0 0 !important;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+/* Edit and Refresh: right */
+.record-details-page.rdv-simple .rdv-detail-top > .rdv-detail-actions {
+  grid-area: actions !important;
+  justify-self: end !important;
+  align-self: center !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-end !important;
+  flex-wrap: nowrap !important;
+  gap: 8px !important;
+  margin: 0 !important;
+}
+
+/* Compact buttons */
+.record-details-page.rdv-simple .rdv-detail-actions > button.secondary-btn {
+  min-height: 36px !important;
+  height: 36px !important;
+  padding: 0 11px !important;
+  white-space: nowrap;
+}
+
+/* Narrow screens: stack safely */
+@media (max-width: 760px) {
+  .record-details-page.rdv-simple .rdv-detail-top {
+    grid-template-columns: minmax(0, 1fr) auto !important;
+    grid-template-areas:
+      "heading heading"
+      "back actions" !important;
+    row-gap: 12px !important;
+  }
+
+  .record-details-page.rdv-simple .rdv-detail-top > .rdv-simple-heading {
+    text-align: center !important;
+  }
+
+  .record-details-page.rdv-simple .rdv-detail-top > .rdv-detail-actions {
+    gap: 6px !important;
+  }
+}

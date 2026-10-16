@@ -1,0 +1,111 @@
+.profile-grid {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.8fr) minmax(300px, 1.2fr);
+  gap: 16px;
+  align-items: start;
+}
+.profile-card {
+  padding: 22px;
+}
+.profile-avatar {
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: #edf2ff;
+  color: #4267d5;
+  display: grid;
+  place-items: center;
+  margin-bottom: 17px;
+}
+.profile-card > .eyebrow {
+  color: #617bd2;
+}
+.profile-card > h2 {
+  font:
+    800 22px Manrope,
+    sans-serif;
+  letter-spacing: -0.04em;
+  color: #26354b;
+  margin: 9px 0 5px;
+}
+.profile-card > p {
+  font-size: 11px;
+  color: #8793a7;
+  margin: 0 0 22px;
+}
+.profile-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 0;
+  border-top: 1px solid #edf0f5;
+  font-size: 11px;
+  color: #8793a7;
+}
+.profile-detail > b {
+  font-size: 10px;
+  color: #35445a;
+}
+.profile-card .panel-head {
+  padding: 0 0 18px;
+  margin-bottom: 18px;
+}
+.profile-card .panel-head h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.profile-card .panel-head h3 svg {
+  color: #5976d4;
+}
+.profile-password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 520px;
+}
+.profile-password-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #58667d;
+}
+.profile-password-form input {
+  height: 41px;
+  border: 1px solid #e0e6ef;
+  border-radius: 8px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 12px;
+  color: #344158;
+  background: #fff;
+}
+.profile-password-form input:focus {
+  border-color: #8daaf8;
+  box-shadow: 0 0 0 3px #3868e812;
+}
+.profile-password-form small {
+  font-size: 9px;
+  color: #8b96a8;
+  font-weight: 400;
+}
+.profile-password-form .primary-btn {
+  align-self: flex-start;
+  margin-top: 4px;
+}
+.table-panel-head .toolbar-right {
+  flex-wrap: wrap;
+}
+.table-panel-head .toolbar-right .secondary-btn {
+  white-space: nowrap;
+}
+@media (max-width: 800px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+  .profile-card {
+    padding: 17px;
+  }
+}

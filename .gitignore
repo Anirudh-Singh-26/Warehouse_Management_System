@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Environment files (keep .env.example files tracked)
+.env
+.env.*
+!.env.example
+
+# Build output
+frontend/dist/
+backend/coverage/
+coverage/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local archives
+*.zip
